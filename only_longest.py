@@ -56,6 +56,7 @@ def Calc(a, mi):
 def draw(a, b, mi_a, mi_b, cols, rows, rem_a, rem_b):
 
     ax = plt.subplot(1, 2, 2)
+    plt.title("Przesłona")
 
     # Tworzenie rysunku
     #fig, ax = plt.subplots(figsize=(5, 5))
@@ -104,24 +105,32 @@ def longest():
     print(f'Najlepsze pole: {P_best}')
     
     plt.subplot(3, 2, 1)
-    plt.title("A")
+    plt.title("Tłumienie w funkcji długości boku")
     plt.plot(x, A)
     plt.axvline(x=mi, color='r', linestyle='-', linewidth=1)
     plt.axvline(x=a_best, color='g', linestyle='-', linewidth=1)
     plt.axhline(y=11, color='y', linestyle='-', linewidth=2)
+    plt.xlabel("Długość krótszego boku [mm]")
+    plt.ylabel("Tłumienie [dB]")
     
 
     plt.subplot(3, 2, 3)
-    plt.title("P3")
+    plt.title("Stosunek Pól: Otworów do całości przesłony")
     plt.plot(x, P3)
     plt.axvline(x=a_best, color='g', linestyle='-', linewidth=1)
     plt.axvline(x=mi, color='r', linestyle='-', linewidth=1)
+    plt.ylabel("Stosunek Pól [%]")
+    plt.xlabel("Długość krótszego boku [mm]")
 
     plt.subplot(3, 2, 5)
-    plt.title("n")
+    plt.title("Liczba otworów w lambda/2")
     plt.plot(x, n)
     plt.axvline(x=a_best, color='g', linestyle='-', linewidth=1)
     plt.axvline(x=mi, color='r', linestyle='-', linewidth=1)
+    plt.ylabel("Liczba otworów")
+    plt.xlabel("Długość krótszego boku [mm]")
+
+    plt.tight_layout()
 
     best_res = Calc(a_best, mi)
     print(best_res)
